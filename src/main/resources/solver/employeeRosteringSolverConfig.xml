@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver xmlns="https://www.optaplanner.org/xsd/solver" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.optaplanner.org/xsd/solver https://www.optaplanner.org/xsd/solver/solver.xsd">
+    <!--<environmentMode>FULL_ASSERT</environmentMode>--><!-- To slowly prove there are no bugs in this code -->
+    <!--<moveThreadCount>AUTO</moveThreadCount>--><!-- To solve faster by saturating multiple CPU cores -->
+
+    <solutionClass>org.demo.rostering.domain.EmployeeRoster</solutionClass>
+    <entityClass>org.demo.rostering.domain.ShiftAssignment</entityClass>
+
+    <scoreDirectorFactory>
+        <scoreDrl>solver/employeeRosteringConstraints.drl</scoreDrl>
+    </scoreDirectorFactory>
+
+    <termination>
+<!--        <minutesSpentLimit>1</minutesSpentLimit>-->
+        <secondsSpentLimit>5</secondsSpentLimit>
+    </termination>
+    <constructionHeuristic>
+        <constructionHeuristicType>WEAKEST_FIT</constructionHeuristicType>
+    </constructionHeuristic>
+    <localSearch>
+        <unionMoveSelector>
+            <moveListFactory>
+                <cacheType>STEP</cacheType>
+                <moveListFactoryClass>org.demo.rostering.solver.move.factory.ShiftAssignmentPillarPartSwapMoveFactory</moveListFactoryClass>
+            </moveListFactory>
+            <changeMoveSelector>
+                <entitySelector>
+                    <filterClass>org.demo.rostering.domain.solver.MovableShiftAssignmentSelectionFilter</filterClass>
+                </entitySelector>
+            </changeMoveSelector>
+            <swapMoveSelector>
+                <entitySelector>
+                    <filterClass>org.demo.rostering.domain.solver.MovableShiftAssignmentSelectionFilter</filterClass>
+                </entitySelector>
+            </swapMoveSelector>
+            <pillarChangeMoveSelector>
+                <subPillarType>SEQUENCE</subPillarType>
+                <pillarSelector>
+                    <entitySelector>
+                        <filterClass>org.demo.rostering.domain.solver.MovableShiftAssignmentSelectionFilter</filterClass>
+                    </entitySelector>
+                </pillarSelector>
+            </pillarChangeMoveSelector>
+            <pillarSwapMoveSelector>
+                <subPillarType>SEQUENCE</subPillarType>
+                <pillarSelector>
+                    <entitySelector>
+                        <filterClass>org.demo.rostering.domain.solver.MovableShiftAssignmentSelectionFilter</filterClass>
+                    </entitySelector>
+                </pillarSelector>
+            </pillarSwapMoveSelector>
+        </unionMoveSelector>
+<!--        <acceptor>-->
+<!--            <entityTabuSize>7</entityTabuSize>-->
+<!--        </acceptor>-->
+<!--        <forager>-->
+<!--            <acceptedCountLimit>800</acceptedCountLimit>-->
+<!--        </forager>-->
+    </localSearch>
+</solver>

@@ -1,0 +1,495 @@
+{
+  "id": null,
+  "roomList": [
+    {
+      "id": 0,
+      "roomType": "STUDIO"
+    },
+    {
+      "id": 1,
+      "roomType": "EDIT_ROOM"
+    },
+    {
+      "id": 2,
+      "roomType": "AUDIO_ROOM"
+    }
+  ],
+  "skillTypeList": [
+    "CAMERAMEN",
+    "PRODUCER",
+    "EDITOR",
+    "AUDIO_OPERATOR"
+  ],
+  "resourceList": [
+    {
+      "id": 0,
+      "name": "Tom Smith",
+      "skillType": "CAMERAMEN"
+    },
+    {
+      "id": 1,
+      "name": "June Smith",
+      "skillType": "CAMERAMEN"
+    },
+    {
+      "id": 2,
+      "name": "John Smith",
+      "skillType": "CAMERAMEN"
+    },
+    {
+      "id": 3,
+      "name": "Jane Smith",
+      "skillType": "CAMERAMEN"
+    },
+    {
+      "id": 4,
+      "name": "Bibi Smith",
+      "skillType": "CAMERAMEN"
+    },
+    {
+      "id": 5,
+      "name": "Mike Smith",
+      "skillType": "CAMERAMEN"
+    },
+    {
+      "id": 6,
+      "name": "Dawn Smith",
+      "skillType": "CAMERAMEN"
+    },
+    {
+      "id": 7,
+      "name": "Don Smith",
+      "skillType": "CAMERAMEN"
+    },
+    {
+      "id": 8,
+      "name": "Bob Jones",
+      "skillType": "PRODUCER"
+    },
+    {
+      "id": 9,
+      "name": "Alan Barnes",
+      "skillType": "EDITOR"
+    },
+    {
+      "id": 10,
+      "name": "Steve James",
+      "skillType": "AUDIO_OPERATOR"
+    }
+  ],
+  "periodList": [
+  ],
+  "assignmentList": [
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-01",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "CAMERAMEN",
+            "requiredCount": 4
+          },
+          {
+            "skillType": "PRODUCER",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-02",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "CAMERAMEN",
+            "requiredCount": 4
+          },
+          {
+            "skillType": "PRODUCER",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-05",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "EDITOR",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-12",
+          "startTime": "11:00:00",
+          "duration": 2
+        },
+        "skillList": [
+          {
+            "skillType": "AUDIO_OPERATOR",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-03",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "CAMERAMEN",
+            "requiredCount": 4
+          },
+          {
+            "skillType": "PRODUCER",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-04",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "CAMERAMEN",
+            "requiredCount": 4
+          },
+          {
+            "skillType": "PRODUCER",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-08",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "EDITOR",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-12",
+          "startTime": "10:00:00",
+          "duration": 2
+        },
+        "skillList": [
+          {
+            "skillType": "AUDIO_OPERATOR",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-05",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "CAMERAMEN",
+            "requiredCount": 4
+          },
+          {
+            "skillType": "PRODUCER",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-08",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "CAMERAMEN",
+            "requiredCount": 4
+          },
+          {
+            "skillType": "PRODUCER",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Voice"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-09",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "CAMERAMEN",
+            "requiredCount": 4
+          },
+          {
+            "skillType": "PRODUCER",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Masked Singer"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-10",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "CAMERAMEN",
+            "requiredCount": 4
+          },
+          {
+            "skillType": "PRODUCER",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Masked Singer"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-11",
+          "startTime": "08:00:00",
+          "duration": 8
+        },
+        "skillList": [
+          {
+            "skillType": "EDITOR",
+            "requiredCount": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": null,
+      "production": {
+        "name": "The Masked Singer"
+      },
+      "sequence": 0,
+      "resource": null,
+      "room": {
+        "id": null,
+        "roomType": "STUDIO"
+      },
+      "session": {
+        "id": null,
+        "period": {
+          "id": null,
+          "date": "2021-02-12",
+          "startTime": "09:00:00",
+          "duration": 2
+        },
+        "skillList": [
+          {
+            "skillType": "AUDIO_OPERATOR",
+            "requiredCount": 1
+          }
+        ]
+      }
+    }
+  ],
+  "score": null
+}

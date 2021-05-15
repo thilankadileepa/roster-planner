@@ -1,0 +1,106 @@
+/*
+ * Copyright 2010 Red Hat, Inc. and/or its affiliates.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.demo.production.solver;
+    dialect "java"
+
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
+import org.demo.production.planning.domain.WorkOrderAssignment;
+
+global HardSoftScoreHolder scoreHolder;
+
+// ############################################################################
+// Hard constraints
+// ############################################################################
+rule "skillMatch"
+    when
+        WorkOrderAssignment(resource!=null, resource.skillType!=skillType)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+rule "sameEmployeeSameSession"
+    when
+        WorkOrderAssignment($resource: resource, $period : period)
+        WorkOrderAssignment(resource!=null, $resource!=null, period!=null, $period!=null,  $resource.name == resource.name, $period.date == period.date, $period.duration == period.duration, $period.startTime == period.startTime)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+rule "sameWorkOrder"
+    when
+        WorkOrderAssignment($workOrderNumber: workOrderNumber, $period: period)
+        WorkOrderAssignment(period!=null, $period!=null,  $workOrderNumber == workOrderNumber, $period != period)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+rule "matchingTimeSlot"
+    when
+        WorkOrderAssignment(period!=null, period.duration!=timeSlotDuration)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+rule "noWorkOnWeekends"
+    when
+        WorkOrderAssignment(period!=null, !period.weekEnd)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+rule "workOrderSequence"
+    when
+        WorkOrderAssignment($production: production.name, $id: id)
+        WorkOrderAssignment($production==production.name,  $id > id)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+rule "resourceNotDoubleBooked"
+    when
+        WorkOrderAssignment($resource: resource, $period : period)
+        WorkOrderAssignment(resource!=null, $resource!=null, period!=null, $period!=null,  $resource.name == resource.name, $period.isOverlapping(period))
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+rule "audioEditingMustOccurOn12th"
+    when
+        WorkOrderAssignment(period!=null, skillType==SkillType.AUDIO_OPERATOR, !period.isAudioEditingDay)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+
+// ############################################################################
+// SOFT constraints
+// ############################################################################
+// Resource cannot work more than 3 consecutive Sundays
+rule "noThreeConsecutiveDays"
+    when
+        WorkOrderAssignment(
+            resource!=null, period!=null, $resource : resource.name, $date : period.date
+        )
+        WorkOrderAssignment(
+            resource!=null, period!=null, $resource==resource.name, $date.plusDays(1)==period.date
+        )
+        WorkOrderAssignment(
+            resource!=null, period!=null, $resource==resource.name, $date.plusDays(2)==period.date
+        )
+    then
+        scoreHolder.addSoftConstraintMatch(kcontext, -10);
+end
+rule "resouceOrPeriodMoved"
+    when
+        WorkOrderAssignment(moved == true)
+    then
+        scoreHolder.addSoftConstraintMatch(kcontext, -1000);
+end
+
+
