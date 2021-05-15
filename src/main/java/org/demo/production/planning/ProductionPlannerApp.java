@@ -116,6 +116,7 @@ public class ProductionPlannerApp extends JFrame {
         protected void done() {
             try {
                 solution = get();
+                System.out.println("Problem Solved, Score :" + solution.getScore());
                 populateSchedule(solution);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
@@ -197,7 +198,7 @@ public class ProductionPlannerApp extends JFrame {
                         WorkOrderAssignment workOrderAssignment = workOrderMap.get(order);
                         if (workOrderAssignment.getRoom().getRoomType().name().equals(room)) {
                             sb.append("<p>");
-                            sb.append(order).append(workOrderAssignment.getPeriod()._getPeriod());
+                            sb.append(order).append("(" + workOrderAssignment.getProduction().getName() + ") - ").append(workOrderAssignment.getPeriod()._getPeriod());
                             List<String> resources = employeeMap.get(order);
                             if (resources != null) {
                                 sb.append("<br>");
